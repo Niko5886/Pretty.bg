@@ -14,7 +14,13 @@ export function Testimonials() {
       <SectionHeading
         id="reviews-heading"
         eyebrow="Reviews"
-        title="Loved by 98K+ pet parents"
+        title={
+          <>
+            Loved by{" "}
+            <CountUp end={98} suffix="K+" className="tabular-nums" /> pet
+            parents
+          </>
+        }
         subtitle="Real words from real customers — and their very good boys and girls."
       />
 

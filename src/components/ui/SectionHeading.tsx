@@ -1,6 +1,8 @@
+import type { ReactNode } from "react";
+
 type SectionHeadingProps = {
   eyebrow?: string;
-  title: string;
+  title: ReactNode;
   subtitle?: string;
   align?: "left" | "center";
   /** id for the <h2>, used with aria-labelledby on the parent Section. */
