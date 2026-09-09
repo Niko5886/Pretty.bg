@@ -1,47 +1,10 @@
 import type { CSSProperties } from "react";
-import { Star, ArrowUpRight, ArrowRight, Plus } from "lucide-react";
+import { Star, ArrowRight, Plus } from "lucide-react";
 import { ASSETS } from "../lib/assets";
-
-type BoxProps = { className?: string; style?: CSSProperties };
 
 /* ------------------------------------------------------------------ */
 /*  Reusable pieces                                                   */
 /* ------------------------------------------------------------------ */
-function HeroProductPreview({ className = "", style }: BoxProps) {
-  return (
-    <div className={className} style={style}>
-      <div
-        className="relative overflow-hidden rounded-2xl"
-        style={{ aspectRatio: "260 / 257" }}
-      >
-        <img
-          src={ASSETS.product}
-          alt="Cozy Cat House"
-          className="h-full w-full object-cover"
-        />
-        <button
-          aria-label="View Cozy Cat House"
-          className="absolute bottom-2 right-2 flex h-9 w-9 items-center justify-center rounded-full bg-green-dark text-white transition hover:bg-green-hover"
-        >
-          <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-        </button>
-      </div>
-      <p
-        className="mt-2 text-gray-700"
-        style={{ fontSize: "clamp(12px,0.9vw,14px)" }}
-      >
-        Cozy Cat House
-      </p>
-      <p
-        className="font-semibold text-green-dark"
-        style={{ fontSize: "clamp(14px,1vw,18px)" }}
-      >
-        $49.99
-      </p>
-    </div>
-  );
-}
-
 function StatBadge({ light = true }: { light?: boolean }) {
   return (
     <div className="flex items-center gap-3">
@@ -161,12 +124,6 @@ function DesktopHero() {
         <HeroHeading style={{ fontSize: "clamp(60px,7.5vw,110px)" }} />
       </div>
 
-      {/* Side card */}
-      <HeroProductPreview
-        className="absolute left-12 top-[50px] z-20 animate-slide-in-left delay-600"
-        style={{ width: "clamp(160px,14vw,260px)" }}
-      />
-
       {/* Bottom images + overlays */}
       <div className="absolute inset-x-0 bottom-0 z-10">
         <div className="flex items-end">
@@ -204,11 +161,6 @@ function TabletHero() {
       <div className="relative z-[5] px-8 pt-16 text-center">
         <HeroHeading style={{ fontSize: "4.5rem" }} />
       </div>
-
-      <HeroProductPreview
-        className="absolute left-4 top-[80px] z-20 animate-slide-in-left delay-600"
-        style={{ width: "160px" }}
-      />
 
       <div className="absolute inset-x-0 bottom-0 z-10">
         <div className="flex items-end">
@@ -255,11 +207,6 @@ function MobileHero() {
           Cozy homes, tasty treats and everything your best friend needs.
         </p>
         <ExploreButton className="mt-4 animate-fade-up delay-400" />
-      </div>
-
-      {/* Product card */}
-      <div className="mt-5 flex animate-fade-up justify-center px-4 delay-500">
-        <HeroProductPreview className="w-44" />
       </div>
 
       {/* Stats row */}
