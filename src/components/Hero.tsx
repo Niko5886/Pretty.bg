@@ -7,7 +7,7 @@ type BoxProps = { className?: string; style?: CSSProperties };
 /* ------------------------------------------------------------------ */
 /*  Reusable pieces                                                   */
 /* ------------------------------------------------------------------ */
-function ProductCard({ className = "", style }: BoxProps) {
+function HeroProductPreview({ className = "", style }: BoxProps) {
   return (
     <div className={className} style={style}>
       <div
@@ -131,7 +131,10 @@ function BottomOverlays() {
   const pos: CSSProperties = { bottom: "clamp(20px, 4vh, 50px)" };
   return (
     <>
-      <div className="absolute left-8 animate-scale-in delay-1000" style={pos}>
+      <div
+        className="absolute left-8 hidden animate-scale-in delay-1000 lg:block"
+        style={pos}
+      >
         <StatBadge />
       </div>
       <div
@@ -143,7 +146,10 @@ function BottomOverlays() {
         </h3>
         <ExploreButton />
       </div>
-      <div className="absolute right-8 animate-scale-in delay-1200" style={pos}>
+      <div
+        className="absolute right-8 hidden animate-scale-in delay-1200 lg:block"
+        style={pos}
+      >
         <RatingBadge />
       </div>
     </>
@@ -185,7 +191,7 @@ function DesktopHero() {
       </div>
 
       {/* Side cards */}
-      <ProductCard
+      <HeroProductPreview
         className="absolute left-12 top-[50px] z-20 animate-slide-in-left delay-600"
         style={{ width: "clamp(160px,14vw,260px)" }}
       />
@@ -205,7 +211,7 @@ function DesktopHero() {
           />
           <img
             src={ASSETS.bottomCenter}
-            alt=""
+            alt="Happy pets living their comfiest life with CozyPaws"
             className="block h-auto w-full flex-[1.265] animate-photo-reveal delay-600"
             style={{ maxHeight: "min(85vh, 70vw)" }}
           />
@@ -232,7 +238,7 @@ function TabletHero() {
         <HeroHeading style={{ fontSize: "4.5rem" }} />
       </div>
 
-      <ProductCard
+      <HeroProductPreview
         className="absolute left-4 top-[80px] z-20 animate-slide-in-left delay-600"
         style={{ width: "160px" }}
       />
@@ -251,7 +257,7 @@ function TabletHero() {
           />
           <img
             src={ASSETS.bottomCenter}
-            alt=""
+            alt="Happy pets living their comfiest life with CozyPaws"
             className="block h-auto w-full flex-[1.265] animate-photo-reveal delay-600"
             style={{ maxHeight: "75vh" }}
           />
@@ -290,7 +296,7 @@ function MobileHero() {
 
       {/* Two cards */}
       <div className="mt-5 flex animate-fade-up gap-3 px-4 delay-500">
-        <ProductCard className="flex-1" />
+        <HeroProductPreview className="flex-1" />
         <VideoCard className="w-32 shrink-0" />
       </div>
 
@@ -310,7 +316,7 @@ function MobileHero() {
         />
         <img
           src={ASSETS.bottomCenter}
-          alt=""
+          alt="Happy pets living their comfiest life with CozyPaws"
           className="block h-auto w-full flex-[1.265] animate-photo-reveal delay-600"
         />
         <img

@@ -2,6 +2,7 @@ import { ShoppingCart } from "lucide-react";
 import { ASSETS } from "../lib/assets";
 import { NAV_ITEMS } from "../data/nav";
 import { useScrolled } from "../hooks/useScrolled";
+import { MobileMenu } from "./MobileMenu";
 
 /**
  * Condensed navigation that slides in from the top once the hero has been
@@ -13,6 +14,7 @@ export function StickyNav() {
   return (
     <div
       aria-hidden={!scrolled}
+      inert={!scrolled ? true : undefined}
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
           ? "translate-y-0 opacity-100"
@@ -35,28 +37,32 @@ export function StickyNav() {
             />
           </a>
 
-          <nav
-            aria-label="Sticky"
-            className="hidden items-center gap-8 text-sm font-medium md:flex"
-          >
-            {NAV_ITEMS.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="rounded text-gray-600 transition hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange"
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
+          <div className="flex items-center gap-4">
+            <nav
+              aria-label="Sticky"
+              className="hidden items-center gap-8 text-sm font-medium md:flex"
+            >
+              {NAV_ITEMS.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className="rounded text-green-dark/70 transition hover:text-green-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </nav>
 
-          <a
-            href="#best-sellers"
-            className="inline-flex items-center gap-2 rounded-full bg-orange px-4 py-2 text-sm font-medium text-white transition hover:bg-orange-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-          >
-            <ShoppingCart className="h-4 w-4" aria-hidden="true" />
-            Shop
-          </a>
+            <a
+              href="#best-sellers"
+              className="inline-flex items-center gap-2 rounded-full bg-orange px-4 py-2 text-sm font-medium text-white transition hover:bg-orange-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            >
+              <ShoppingCart className="h-4 w-4" aria-hidden="true" />
+              Shop
+            </a>
+
+            <MobileMenu />
+          </div>
         </div>
       </div>
     </div>

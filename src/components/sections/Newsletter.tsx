@@ -6,8 +6,13 @@ export function Newsletter() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
+  function isValidEmail(v: string) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
+  }
+
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (!isValidEmail(email)) return;
     // TODO: wire up to a real email provider — no backend yet.
     setSubmitted(true);
   }

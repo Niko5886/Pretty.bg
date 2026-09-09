@@ -8,8 +8,8 @@ export default {
         "green-dark": "#1a3d1a",
         "green-hover": "#2a5a2a",
         orange: {
-          DEFAULT: "#E86A10",
-          hover: "#d45e0d",
+          DEFAULT: "#C2560B",
+          hover: "#A84A08",
         },
       },
       fontFamily: {

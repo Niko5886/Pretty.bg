@@ -37,12 +37,13 @@ export function Button(props: ButtonProps) {
   const cls = `${base} ${variants[variant]} ${sizes[size]} ${className}`.trim();
 
   if (props.href !== undefined) {
-    const { variant: _v, size: _s, className: _c, children: _ch, ...rest } =
-      props;
-    void _v;
-    void _s;
-    void _c;
-    void _ch;
+    const {
+      variant: _variant,
+      size: _size,
+      className: _className,
+      children: _children,
+      ...rest
+    } = props;
     return (
       <a className={cls} {...rest}>
         {children}
@@ -50,13 +51,14 @@ export function Button(props: ButtonProps) {
     );
   }
 
-  const { variant: _v, size: _s, className: _c, children: _ch, href: _h, ...rest } =
-    props;
-  void _v;
-  void _s;
-  void _c;
-  void _ch;
-  void _h;
+  const {
+    variant: _variant,
+    size: _size,
+    className: _className,
+    children: _children,
+    href: _href,
+    ...rest
+  } = props;
   return (
     <button type="button" className={cls} {...rest}>
       {children}

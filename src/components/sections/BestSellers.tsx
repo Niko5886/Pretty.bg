@@ -15,7 +15,7 @@ export function BestSellers() {
         subtitle="The most-added-to-cart favourites this month — vet-approved and paw-tested."
       />
 
-      <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4">
+      <div className="mt-12 grid grid-cols-2 gap-4 md:gap-6 lg:grid-cols-4">
         {PRODUCTS.map((product, i) => (
           <Reveal
             key={product.id}

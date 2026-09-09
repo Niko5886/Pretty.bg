@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { Search, ShoppingCart, Star } from "lucide-react";
 import { ASSETS } from "../lib/assets";
 import { NAV_ITEMS } from "../data/nav";
+import { MobileMenu } from "./MobileMenu";
 
 function Badge({ children }: { children: ReactNode }) {
   return (
@@ -31,8 +32,8 @@ export function Header() {
             <a
               key={item.label}
               href={item.href}
-              className={`rounded transition hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange ${
-                i === 0 ? "text-gray-900" : "text-gray-600"
+              className={`rounded transition hover:text-green-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange ${
+                i === 0 ? "text-green-dark" : "text-green-dark/70"
               }`}
             >
               {item.label}
@@ -67,6 +68,7 @@ export function Header() {
             alt="Account"
             className="h-10 w-10 rounded-full object-cover"
           />
+          <MobileMenu />
         </div>
       </div>
     </header>
