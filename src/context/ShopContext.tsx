@@ -4,7 +4,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { PRODUCTS, type Product } from "../data/products";
+import type { Product } from "../data/products";
 
 export type CartItem = { product: Product; qty: number };
 export type Panel = "search" | "cart" | "wishlist" | null;
@@ -33,11 +33,9 @@ type ShopState = {
 const ShopContext = createContext<ShopState | null>(null);
 
 export function ShopProvider({ children }: { children: ReactNode }) {
-  // Seed to match the original header badges (cart 1, wishlist 4).
-  const [cart, setCart] = useState<CartItem[]>([
-    { product: PRODUCTS[0], qty: 1 },
-  ]);
-  const [wishlist, setWishlist] = useState<Product[]>(PRODUCTS.slice(1, 5));
+  // Empty on first visit — like a brand-new shopper (no cart, no favourites).
+  const [cart, setCart] = useState<CartItem[]>([]);
+  const [wishlist, setWishlist] = useState<Product[]>([]);
   const [panel, setPanel] = useState<Panel>(null);
 
   const addToCart = (p: Product) =>
