@@ -3,6 +3,7 @@ import { Section } from "../ui/Section";
 import { SectionHeading } from "../ui/SectionHeading";
 import { StarRating } from "../ui/StarRating";
 import { Reveal } from "../ui/Reveal";
+import { CountUp } from "../ui/CountUp";
 import { TESTIMONIALS } from "../../data/testimonials";
 
 const PRESS = ["PetMag", "The Bark", "VetDaily", "PawPost", "Groomed"];
@@ -25,12 +26,16 @@ export function Testimonials() {
         </div>
         <span className="hidden h-6 w-px bg-green-dark/20 sm:block" />
         <p className="text-sm text-gray-600">
-          <strong className="font-semibold text-green-dark">98K+</strong> happy
-          customers
+          <strong className="font-semibold text-green-dark tabular-nums">
+            <CountUp end={98} suffix="K+" />
+          </strong>{" "}
+          happy customers
         </p>
         <span className="hidden h-6 w-px bg-green-dark/20 sm:block" />
         <p className="text-sm text-gray-600">
-          <strong className="font-semibold text-green-dark">12K+</strong>{" "}
+          <strong className="font-semibold text-green-dark tabular-nums">
+            <CountUp end={12} suffix="K+" />
+          </strong>{" "}
           five-star reviews
         </p>
       </div>

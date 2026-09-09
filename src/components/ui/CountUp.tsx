@@ -20,7 +20,7 @@ const easeOutExpo = (t: number) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t));
  */
 export function CountUp({
   end,
-  duration = 2000,
+  duration = 6000,
   prefix = "",
   suffix = "",
   className,
