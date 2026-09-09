@@ -2,6 +2,7 @@ import { AnnouncementBar } from "./components/sections/AnnouncementBar";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import { Benefits } from "./components/sections/Benefits";
+import { Categories } from "./components/sections/Categories";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
       {/* Scrollable home page content */}
       <main>
         <Benefits />
+        <Categories />
         {/* more sections added in later phases */}
       </main>
     </div>

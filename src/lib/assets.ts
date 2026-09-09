@@ -16,3 +16,17 @@ export const ASSETS = {
   bottomRight:
     "https://polo-pecan-73837341.figma.site/_assets/v11/81bd2e7a66b58f3d8f3ad78fd1ebf01af8dfdee1.png",
 } as const;
+
+/**
+ * Placeholder imagery for the below-the-fold sections (Unsplash CDN).
+ * TODO: swap with real CozyPaws product/lifestyle photography.
+ */
+const unsplash = (id: string, w = 800, h = 1000) =>
+  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&h=${h}&q=80`;
+
+export const PLACEHOLDER = {
+  categoryDogs: unsplash("1552053831-71594a27632d"),
+  categoryCats: unsplash("1514888286974-6c03e2ca1dba"),
+  categorySmallPets: unsplash("1452857297128-d9c29adba80b"),
+  categoryToys: unsplash("1576201836106-db1758fd1c97"),
+} as const;
