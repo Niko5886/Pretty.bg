@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Search, ShoppingCart, Star } from "lucide-react";
 import { ASSETS } from "../lib/assets";
+import { NAV_ITEMS } from "../data/nav";
 
 function Badge({ children }: { children: ReactNode }) {
   return (
@@ -22,22 +23,21 @@ export function Header() {
         />
 
         {/* Center nav */}
-        <nav className="hidden animate-fade-in items-center gap-8 text-sm font-medium delay-200 md:flex">
-          <a href="#" className="text-gray-900">
-            Home
-          </a>
-          <a href="#" className="text-gray-600 transition hover:text-gray-900">
-            Shop
-          </a>
-          <a href="#" className="text-gray-600 transition hover:text-gray-900">
-            Delivery and payment
-          </a>
-          <a href="#" className="text-gray-600 transition hover:text-gray-900">
-            Brands
-          </a>
-          <a href="#" className="text-gray-600 transition hover:text-gray-900">
-            Blog
-          </a>
+        <nav
+          aria-label="Primary"
+          className="hidden animate-fade-in items-center gap-8 text-sm font-medium delay-200 md:flex"
+        >
+          {NAV_ITEMS.map((item, i) => (
+            <a
+              key={item.label}
+              href={item.href}
+              className={`rounded transition hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange ${
+                i === 0 ? "text-gray-900" : "text-gray-600"
+              }`}
+            >
+              {item.label}
+            </a>
+          ))}
         </nav>
 
         {/* Actions */}
