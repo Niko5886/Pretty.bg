@@ -8,6 +8,7 @@ import { BrandStory } from "./components/sections/BrandStory";
 import { WhyCozyPaws } from "./components/sections/WhyCozyPaws";
 import { Testimonials } from "./components/sections/Testimonials";
 import { Newsletter } from "./components/sections/Newsletter";
+import { Footer } from "./components/sections/Footer";
 
 export default function App() {
   return (
@@ -28,8 +29,9 @@ export default function App() {
         <WhyCozyPaws />
         <Testimonials />
         <Newsletter />
-        {/* more sections added in later phases */}
       </main>
+
+      <Footer />
     </div>
   );
 }
