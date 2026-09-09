@@ -35,12 +35,12 @@ const VALUES: Value[] = [
   },
 ];
 
-export function WhyCozyPaws() {
+export function WhyPretty() {
   return (
     <Section id="why" aria-labelledby="why-heading">
       <SectionHeading
         id="why-heading"
-        eyebrow="Why CozyPaws"
+        eyebrow="Why Pretty.bg"
         title="Care you can feel good about"
         subtitle="The little things that make a big difference for you and your best friend."
       />

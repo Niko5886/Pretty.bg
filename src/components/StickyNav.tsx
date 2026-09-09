@@ -1,5 +1,4 @@
-import { ShoppingCart } from "lucide-react";
-import { ASSETS } from "../lib/assets";
+import { ShoppingCart, PawPrint } from "lucide-react";
 import { NAV_ITEMS } from "../data/nav";
 import { useScrolled } from "../hooks/useScrolled";
 import { MobileMenu } from "./MobileMenu";
@@ -25,16 +24,13 @@ export function StickyNav() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-8 lg:px-12">
           <a
             href="#top"
-            aria-label="CozyPaws home"
-            className="rounded outline-none focus-visible:ring-2 focus-visible:ring-orange"
+            aria-label="Pretty.bg home"
+            className="flex items-center gap-2 rounded outline-none focus-visible:ring-2 focus-visible:ring-orange"
           >
-            <img
-              src={ASSETS.logo}
-              alt="CozyPaws"
-              className="h-8 w-auto"
-              width={126}
-              height={32}
-            />
+            <PawPrint className="h-6 w-6 text-orange" aria-hidden="true" />
+            <span className="font-serif-display text-xl text-green-dark">
+              Pretty.bg
+            </span>
           </a>
 
           <div className="flex items-center gap-4">

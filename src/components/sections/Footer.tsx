@@ -28,7 +28,7 @@ export function Footer() {
               className="inline-flex items-center gap-2 text-white outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-green-dark"
             >
               <PawPrint className="h-7 w-7 text-orange" aria-hidden="true" />
-              <span className="font-serif-display text-2xl">CozyPaws</span>
+              <span className="font-serif-display text-2xl">Pretty.bg</span>
             </a>
             <p className="mt-4 max-w-xs text-sm">
               Everything your pets love — vet-approved quality, delivered fast to
@@ -72,7 +72,7 @@ export function Footer() {
 
         {/* Bottom row */}
         <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 md:flex-row md:items-center md:justify-between">
-          <p className="text-sm">© 2026 CozyPaws. All rights reserved.</p>
+          <p className="text-sm">© 2026 Pretty.bg. All rights reserved.</p>
 
           <div className="flex flex-wrap gap-2">
             {PAYMENTS.map((p) => (

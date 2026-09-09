@@ -19,7 +19,7 @@ export const ASSETS = {
 
 /**
  * Placeholder imagery for the below-the-fold sections (Unsplash CDN).
- * TODO: swap with real CozyPaws product/lifestyle photography.
+ * TODO: swap with real Pretty.bg product/lifestyle photography.
  */
 export const unsplashPhoto = (id: string, w = 800, h = 1000) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&h=${h}&q=80`;

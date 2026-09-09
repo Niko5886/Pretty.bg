@@ -211,7 +211,7 @@ function DesktopHero() {
           />
           <img
             src={ASSETS.bottomCenter}
-            alt="Happy pets living their comfiest life with CozyPaws"
+            alt="Happy pets living their comfiest life with Pretty.bg"
             className="block h-auto w-full flex-[1.265] animate-photo-reveal delay-600"
             style={{ maxHeight: "min(85vh, 70vw)" }}
           />
@@ -257,7 +257,7 @@ function TabletHero() {
           />
           <img
             src={ASSETS.bottomCenter}
-            alt="Happy pets living their comfiest life with CozyPaws"
+            alt="Happy pets living their comfiest life with Pretty.bg"
             className="block h-auto w-full flex-[1.265] animate-photo-reveal delay-600"
             style={{ maxHeight: "75vh" }}
           />
@@ -316,7 +316,7 @@ function MobileHero() {
         />
         <img
           src={ASSETS.bottomCenter}
-          alt="Happy pets living their comfiest life with CozyPaws"
+          alt="Happy pets living their comfiest life with Pretty.bg"
           className="block h-auto w-full flex-[1.265] animate-photo-reveal delay-600"
         />
         <img

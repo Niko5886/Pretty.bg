@@ -31,7 +31,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: "Sofia M.",
     pet: "Bunny mom to Clover",
     quote:
-      "Beautiful packaging, non-toxic materials and genuinely helpful 24/7 support. CozyPaws is now my go-to for everything.",
+      "Beautiful packaging, non-toxic materials and genuinely helpful 24/7 support. Pretty.bg is now my go-to for everything.",
     rating: 4,
     avatar: "https://i.pravatar.cc/128?img=47",
   },

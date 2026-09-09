@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Truck, X } from "lucide-react";
 
-const KEY = "cozy-announcement";
+const KEY = "prettybg-announcement";
 
 export function AnnouncementBar() {
   const [dismissed, setDismissed] = useState(

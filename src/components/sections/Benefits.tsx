@@ -19,7 +19,7 @@ export function Benefits() {
   return (
     <section
       id="benefits"
-      aria-label="Why shop with CozyPaws"
+      aria-label="Why shop with Pretty.bg"
       className="scroll-mt-24 border-y border-green-dark/10 bg-white/50"
     >
       <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-4 py-10 md:px-8 lg:grid-cols-4 lg:px-12">

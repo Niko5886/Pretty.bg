@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { Search, ShoppingCart, Star } from "lucide-react";
+import { Search, ShoppingCart, Star, PawPrint } from "lucide-react";
 import { ASSETS } from "../lib/assets";
 import { NAV_ITEMS } from "../data/nav";
 import { MobileMenu } from "./MobileMenu";
@@ -17,11 +17,16 @@ export function Header() {
     <header className="relative z-30 w-full shrink-0 px-4 py-4 md:px-8 lg:px-12">
       <div className="flex items-center justify-between">
         {/* Logo */}
-        <img
-          src={ASSETS.logo}
-          alt="CozyPaws"
-          className="h-[33px] w-[130px] animate-fade-in delay-100 lg:h-[52px] lg:w-[205px]"
-        />
+        <a
+          href="#top"
+          aria-label="Pretty.bg home"
+          className="flex animate-fade-in items-center gap-2 delay-100 outline-none focus-visible:ring-2 focus-visible:ring-orange"
+        >
+          <PawPrint className="h-7 w-7 text-orange lg:h-8 lg:w-8" aria-hidden="true" />
+          <span className="font-serif-display text-2xl text-green-dark lg:text-3xl">
+            Pretty.bg
+          </span>
+        </a>
 
         {/* Center nav */}
         <nav

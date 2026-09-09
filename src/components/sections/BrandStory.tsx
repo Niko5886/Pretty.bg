@@ -41,7 +41,7 @@ export function BrandStory() {
             Everything Your Pets Love
           </h2>
           <p className="mt-4 text-base text-gray-600 md:text-lg">
-            CozyPaws began with one belief: our companions deserve the same care
+            Pretty.bg began with one belief: our companions deserve the same care
             we give ourselves. Every product is chosen by real pet parents and
             reviewed by vets — so you can shop with confidence and they can live
             their comfiest, happiest life.

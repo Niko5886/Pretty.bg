@@ -6,7 +6,7 @@ import { Benefits } from "./components/sections/Benefits";
 import { Categories } from "./components/sections/Categories";
 import { BestSellers } from "./components/sections/BestSellers";
 import { BrandStory } from "./components/sections/BrandStory";
-import { WhyCozyPaws } from "./components/sections/WhyCozyPaws";
+import { WhyPretty } from "./components/sections/WhyPretty";
 import { Testimonials } from "./components/sections/Testimonials";
 import { Newsletter } from "./components/sections/Newsletter";
 import { Footer } from "./components/sections/Footer";
@@ -39,7 +39,7 @@ export default function App() {
         <Categories />
         <BestSellers />
         <BrandStory />
-        <WhyCozyPaws />
+        <WhyPretty />
         <Testimonials />
         <Newsletter />
       </main>

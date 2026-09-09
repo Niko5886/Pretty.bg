@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
-import { ASSETS } from "../lib/assets";
+import { Menu, X, PawPrint } from "lucide-react";
 import { NAV_ITEMS } from "../data/nav";
 
 /**
@@ -43,11 +42,12 @@ export function MobileMenu() {
           className="fixed inset-0 z-[70] flex flex-col bg-background"
         >
           <div className="flex items-center justify-between px-4 py-4">
-            <img
-              src={ASSETS.logo}
-              alt="CozyPaws"
-              className="h-[33px] w-[130px]"
-            />
+            <span className="flex items-center gap-2">
+              <PawPrint className="h-7 w-7 text-orange" aria-hidden="true" />
+              <span className="font-serif-display text-2xl text-green-dark">
+                Pretty.bg
+              </span>
+            </span>
             <button
               type="button"
               onClick={() => setOpen(false)}
