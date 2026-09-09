@@ -6,6 +6,7 @@ import { Categories } from "./components/sections/Categories";
 import { BestSellers } from "./components/sections/BestSellers";
 import { BrandStory } from "./components/sections/BrandStory";
 import { WhyCozyPaws } from "./components/sections/WhyCozyPaws";
+import { Testimonials } from "./components/sections/Testimonials";
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
         <BestSellers />
         <BrandStory />
         <WhyCozyPaws />
+        <Testimonials />
         {/* more sections added in later phases */}
       </main>
     </div>
