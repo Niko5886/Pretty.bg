@@ -29,4 +29,5 @@ export const PLACEHOLDER = {
   categoryCats: unsplashPhoto("1514888286974-6c03e2ca1dba"),
   categorySmallPets: unsplashPhoto("1452857297128-d9c29adba80b"),
   categoryToys: unsplashPhoto("1576201836106-db1758fd1c97"),
+  brandStory: unsplashPhoto("1601758124510-52d02ddb7cbd", 900, 1000),
 } as const;
