@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import { Star, ArrowRight, Plus } from "lucide-react";
 import { ASSETS } from "../lib/assets";
+import { CountUp } from "./ui/CountUp";
 
 /* ------------------------------------------------------------------ */
 /*  Reusable pieces                                                   */
@@ -20,11 +21,11 @@ function StatBadge({ light = true }: { light?: boolean }) {
       </div>
       <div className="leading-tight">
         <p
-          className={`text-lg font-semibold ${
+          className={`text-lg font-semibold tabular-nums ${
             light ? "text-white" : "text-green-dark"
           }`}
         >
-          98K+
+          <CountUp end={98} suffix="K+" />
         </p>
         <p className={`text-xs ${light ? "text-white/80" : "text-gray-600"}`}>
           Happy Customers
