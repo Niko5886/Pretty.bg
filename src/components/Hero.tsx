@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import { Star, ArrowUpRight, Play, ArrowRight, Plus } from "lucide-react";
+import { Star, ArrowUpRight, ArrowRight, Plus } from "lucide-react";
 import { ASSETS } from "../lib/assets";
 
 type BoxProps = { className?: string; style?: CSSProperties };
@@ -37,35 +37,6 @@ function HeroProductPreview({ className = "", style }: BoxProps) {
         style={{ fontSize: "clamp(14px,1vw,18px)" }}
       >
         $49.99
-      </p>
-    </div>
-  );
-}
-
-function VideoCard({ className = "", style }: BoxProps) {
-  return (
-    <div className={className} style={style}>
-      <div
-        className="relative overflow-hidden rounded-2xl"
-        style={{ aspectRatio: "177 / 287" }}
-      >
-        <img
-          src={ASSETS.video}
-          alt="Product reviews"
-          className="h-full w-full object-cover"
-        />
-        <button
-          aria-label="Play product reviews"
-          className="absolute bottom-3 left-1/2 flex h-11 w-11 -translate-x-1/2 items-center justify-center rounded-full bg-green-dark text-white transition hover:bg-green-hover"
-        >
-          <Play className="h-4 w-4" fill="currentColor" aria-hidden="true" />
-        </button>
-      </div>
-      <p
-        className="mt-2 text-gray-700"
-        style={{ fontSize: "clamp(11px,0.8vw,13px)" }}
-      >
-        Watch Product Reviews on TikTok and YouTube
       </p>
     </div>
   );
@@ -190,14 +161,10 @@ function DesktopHero() {
         <HeroHeading style={{ fontSize: "clamp(60px,7.5vw,110px)" }} />
       </div>
 
-      {/* Side cards */}
+      {/* Side card */}
       <HeroProductPreview
         className="absolute left-12 top-[50px] z-20 animate-slide-in-left delay-600"
         style={{ width: "clamp(160px,14vw,260px)" }}
-      />
-      <VideoCard
-        className="absolute right-12 top-[50px] z-20 animate-slide-in-right delay-700"
-        style={{ width: "clamp(120px,10vw,177px)" }}
       />
 
       {/* Bottom images + overlays */}
@@ -241,10 +208,6 @@ function TabletHero() {
       <HeroProductPreview
         className="absolute left-4 top-[80px] z-20 animate-slide-in-left delay-600"
         style={{ width: "160px" }}
-      />
-      <VideoCard
-        className="absolute right-4 top-[80px] z-20 animate-slide-in-right delay-700"
-        style={{ width: "120px" }}
       />
 
       <div className="absolute inset-x-0 bottom-0 z-10">
@@ -294,10 +257,9 @@ function MobileHero() {
         <ExploreButton className="mt-4 animate-fade-up delay-400" />
       </div>
 
-      {/* Two cards */}
-      <div className="mt-5 flex animate-fade-up gap-3 px-4 delay-500">
-        <HeroProductPreview className="flex-1" />
-        <VideoCard className="w-32 shrink-0" />
+      {/* Product card */}
+      <div className="mt-5 flex animate-fade-up justify-center px-4 delay-500">
+        <HeroProductPreview className="w-44" />
       </div>
 
       {/* Stats row */}
