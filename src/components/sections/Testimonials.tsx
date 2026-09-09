@@ -72,10 +72,10 @@ export function Testimonials() {
 
       {/* Press / as seen in */}
       <div className="mt-14 border-t border-green-dark/10 pt-8">
-        <p className="text-center text-xs uppercase tracking-[0.2em] text-gray-400">
+        <p className="text-center text-xs uppercase tracking-[0.2em] text-green-dark/50">
           As seen in
         </p>
-        <div className="mt-4 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-gray-400">
+        <div className="mt-4 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-green-dark/55">
           {PRESS.map((name) => (
             <span key={name} className="font-serif-display text-xl">
               {name}
