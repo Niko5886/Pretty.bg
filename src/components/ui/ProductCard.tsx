@@ -1,9 +1,12 @@
 import { Heart, ShoppingCart } from "lucide-react";
 import { StarRating } from "./StarRating";
 import type { Product } from "../../data/products";
+import { useShop } from "../../context/ShopContext";
 
 export function ProductCard({ product }: { product: Product }) {
   const { name, price, oldPrice, rating, reviews, image, badge } = product;
+  const { addToCart, openCart, inWishlist, toggleWishlist } = useShop();
+  const saved = inWishlist(product.id);
 
   return (
     <div className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
@@ -24,10 +27,24 @@ export function ProductCard({ product }: { product: Product }) {
         )}
         <button
           type="button"
-          aria-label={`Add ${name} to favorites`}
-          className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-green-dark opacity-100 transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange md:opacity-0 md:group-hover:opacity-100"
+          onClick={() => toggleWishlist(product)}
+          aria-pressed={saved}
+          aria-label={
+            saved
+              ? `Remove ${name} from favorites`
+              : `Add ${name} to favorites`
+          }
+          className={`absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange ${
+            saved
+              ? "text-orange opacity-100"
+              : "text-green-dark opacity-100 md:opacity-0 md:group-hover:opacity-100"
+          }`}
         >
-          <Heart className="h-4 w-4" aria-hidden="true" />
+          <Heart
+            className="h-4 w-4"
+            fill={saved ? "currentColor" : "none"}
+            aria-hidden="true"
+          />
         </button>
       </div>
 
@@ -52,6 +69,10 @@ export function ProductCard({ product }: { product: Product }) {
 
         <button
           type="button"
+          onClick={() => {
+            addToCart(product);
+            openCart();
+          }}
           aria-label={`Add ${name} to cart`}
           className="mt-4 flex items-center justify-center gap-2 rounded-full bg-green-dark px-4 py-2.5 text-sm font-medium text-white transition hover:bg-green-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-white"
         >
