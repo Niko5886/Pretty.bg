@@ -1,18 +1,23 @@
+import { AnnouncementBar } from "./components/sections/AnnouncementBar";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
+import { Benefits } from "./components/sections/Benefits";
 
 export default function App() {
   return (
     <div className="min-h-screen bg-background">
-      {/* First screen: header + hero fill the viewport (no scroll within) */}
+      {/* First screen: announcement + header + hero fill the viewport */}
       <div className="flex min-h-[100svh] flex-col overflow-hidden">
+        <AnnouncementBar />
         <Header />
-        <main className="flex flex-1 flex-col">
-          <Hero />
-        </main>
+        <Hero />
       </div>
 
-      {/* Home page sections are added below in later phases */}
+      {/* Scrollable home page content */}
+      <main>
+        <Benefits />
+        {/* more sections added in later phases */}
+      </main>
     </div>
   );
 }
