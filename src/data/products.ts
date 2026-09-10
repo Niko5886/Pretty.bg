@@ -71,13 +71,13 @@ export const PRODUCTS: Product[] = [
     image: img("1684882726821-2999db517441"),
   },
   {
-    // dog resting in a pet bed
+    // real Pretty.bg photo: dog resting on its bed (optimised JPEG in /public)
     id: "orthopedic-bed",
     price: 69.99,
     oldPrice: 89.99,
     rating: 4.8,
     reviews: 276,
-    image: img("1644707664497-4b7f3b0bf6d3"),
+    image: "/product-orthopedic-bed.jpg",
     badge: "-22%",
   },
   {
