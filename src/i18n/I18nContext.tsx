@@ -6,6 +6,7 @@ import {
   type ReactNode,
 } from "react";
 import { translations, type Dict, type Locale } from "./translations";
+import { formatPrice } from "./format";
 
 const STORAGE_KEY = "prettybg-lang";
 
@@ -14,6 +15,8 @@ type I18nState = {
   setLang: (l: Locale) => void;
   /** The active locale's dictionary — access as `t.hero.explore`, etc. */
   t: Dict;
+  /** Format a number as localised euro (€24.99 / 24,99 €). */
+  formatPrice: (value: number) => string;
 };
 
 const I18nContext = createContext<I18nState | null>(null);
@@ -44,7 +47,12 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  const value: I18nState = { lang, setLang, t: translations[lang] };
+  const value: I18nState = {
+    lang,
+    setLang,
+    t: translations[lang],
+    formatPrice: (v: number) => formatPrice(v, lang),
+  };
 
   return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>;
 }

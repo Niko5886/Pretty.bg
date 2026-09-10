@@ -6,7 +6,7 @@ import { useI18n } from "../i18n/I18nContext";
 
 export function SearchOverlay() {
   const { panel, closePanel, addToCart, openCart } = useShop();
-  const { t } = useI18n();
+  const { t, formatPrice } = useI18n();
   const open = panel === "search";
   const [query, setQuery] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
@@ -122,7 +122,7 @@ export function SearchOverlay() {
                             {t.product.names[p.id]}
                           </p>
                           <p className="text-sm text-gray-600">
-                            ${p.price.toFixed(2)}
+                            {formatPrice(p.price)}
                           </p>
                         </div>
                         <button

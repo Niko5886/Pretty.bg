@@ -13,7 +13,7 @@ import { useI18n } from "../i18n/I18nContext";
 export function CartDrawer() {
   const { panel, closePanel, cart, cartCount, subtotal, setQty, removeFromCart } =
     useShop();
-  const { t } = useI18n();
+  const { t, formatPrice } = useI18n();
 
   const remaining = Math.max(0, FREE_SHIPPING_THRESHOLD - subtotal);
   const pct = Math.min(100, (subtotal / FREE_SHIPPING_THRESHOLD) * 100);
@@ -33,7 +33,7 @@ export function CartDrawer() {
                 {t.cart.subtotal(cartCount)}
               </span>
               <span className="text-lg font-semibold text-green-dark">
-                ${subtotal.toFixed(2)}
+                {formatPrice(subtotal)}
               </span>
             </div>
             <button
@@ -73,7 +73,7 @@ export function CartDrawer() {
               {remaining > 0 ? (
                 <span>
                   {t.cart.awayPre}{" "}
-                  <strong className="font-semibold">${remaining.toFixed(2)}</strong>{" "}
+                  <strong className="font-semibold">{formatPrice(remaining)}</strong>{" "}
                   {t.cart.awayPost}
                 </span>
               ) : (
@@ -114,7 +114,7 @@ export function CartDrawer() {
                     </button>
                   </div>
                   <p className="text-sm text-gray-600">
-                    ${product.price.toFixed(2)}
+                    {formatPrice(product.price)}
                   </p>
                   <div className="mt-auto flex items-center gap-2">
                     <div className="flex items-center rounded-full border border-green-dark/15">

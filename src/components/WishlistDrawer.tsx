@@ -5,7 +5,7 @@ import { useI18n } from "../i18n/I18nContext";
 
 export function WishlistDrawer() {
   const { panel, closePanel, wishlist, toggleWishlist, moveToCart } = useShop();
-  const { t } = useI18n();
+  const { t, formatPrice } = useI18n();
   const isEmpty = wishlist.length === 0;
 
   return (
@@ -59,7 +59,7 @@ export function WishlistDrawer() {
                   </button>
                 </div>
                 <p className="text-sm text-gray-600">
-                  ${product.price.toFixed(2)}
+                  {formatPrice(product.price)}
                 </p>
                 <button
                   type="button"

@@ -36,6 +36,7 @@ const en = {
 
   announcement: {
     freePre: "Free shipping on orders over",
+    amount: "€49",
     support: "24/7 vet chat support",
     dismiss: "Dismiss announcement",
   },
@@ -72,7 +73,7 @@ const en = {
   benefits: {
     aria: "Why shop with Pretty.bg",
     items: [
-      { title: "Free & fast delivery", text: "On all orders over $49" },
+      { title: "Free & fast delivery", text: "On all orders over €49" },
       { title: "Vet-approved quality", text: "Trusted by 500+ vets" },
       { title: "Easy 30-day returns", text: "Hassle-free refunds" },
       { title: "Secure payment", text: "Encrypted checkout" },
@@ -300,7 +301,8 @@ const bg: Dict = {
 
   announcement: {
     freePre: "Безплатна доставка за поръчки над",
-    support: "Ветеринарна поддръжка 24/7",
+    amount: "49 €",
+    support: "24/7 Ветеринар",
     dismiss: "Затвори съобщението",
   },
 
@@ -336,7 +338,7 @@ const bg: Dict = {
   benefits: {
     aria: "Защо да пазарувате от Pretty.bg",
     items: [
-      { title: "Безплатна и бърза доставка", text: "За всички поръчки над $49" },
+      { title: "Безплатна и бърза доставка", text: "За всички поръчки над 49 €" },
       { title: "Одобрено от ветеринари", text: "Доверие от 500+ ветеринари" },
       { title: "Лесно връщане до 30 дни", text: "Връщане без усложнения" },
       { title: "Сигурно плащане", text: "Криптирано плащане" },
@@ -345,9 +347,9 @@ const bg: Dict = {
 
   categories: {
     eyebrow: "Категории",
-    title: "Пазарувай по любимец",
+    title: "Пазарувай за своя любимец",
     subtitle:
-      "Всичко за всеки вид любимец — подбрано от нашите домашни стопани.",
+      "Най-добавяните в количката този месец — одобрени от ветеринари и тествани от нас.",
     products: "продукта",
     names: {
       dogs: "Кучета",

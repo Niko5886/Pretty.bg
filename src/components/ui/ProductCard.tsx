@@ -7,7 +7,7 @@ import { useI18n } from "../../i18n/I18nContext";
 export function ProductCard({ product }: { product: Product }) {
   const { price, oldPrice, rating, reviews, image, badge } = product;
   const { addToCart, openCart, inWishlist, toggleWishlist } = useShop();
-  const { t } = useI18n();
+  const { t, formatPrice } = useI18n();
   const saved = inWishlist(product.id);
   const name = t.product.names[product.id];
   const badgeLabel = badge ? t.product.badges[badge] ?? badge : undefined;
@@ -58,11 +58,11 @@ export function ProductCard({ product }: { product: Product }) {
 
         <div className="mt-2 flex items-baseline gap-2">
           <span className="text-lg font-semibold text-green-dark">
-            ${price.toFixed(2)}
+            {formatPrice(price)}
           </span>
           {oldPrice && (
             <span className="text-sm text-gray-400 line-through">
-              ${oldPrice.toFixed(2)}
+              {formatPrice(oldPrice)}
             </span>
           )}
         </div>

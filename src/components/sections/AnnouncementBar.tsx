@@ -34,7 +34,7 @@ export function AnnouncementBar() {
           <Truck className="h-4 w-4 shrink-0" aria-hidden="true" />
           <span>
             {t.announcement.freePre}{" "}
-            <strong className="font-semibold">$49</strong>
+            <strong className="font-semibold">{t.announcement.amount}</strong>
             <span className="mx-2 text-white/40">·</span>
             {t.announcement.support}
           </span>
