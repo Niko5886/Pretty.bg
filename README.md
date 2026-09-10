@@ -8,6 +8,11 @@ A polished, production‑style storefront built with **React 19**, **TypeScript*
 
 <br/>
 
+### 🔗 [**View the Live Demo &rarr;**](https://pretty-bg.vercel.app)
+
+<br/>
+
+[![Live Demo](https://img.shields.io/badge/▲_Live_Demo-pretty--bg.vercel.app-000000?style=flat-square&logo=vercel&logoColor=white)](https://pretty-bg.vercel.app)
 ![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=flat-square&logo=vite&logoColor=white)
@@ -80,7 +85,7 @@ npm run dev
 | `npm run preview` | Preview the production build locally |
 | `npm run lint` | Lint the codebase with oxlint |
 
-> **Deploy‑ready** for [Vercel](https://vercel.com) or [Netlify](https://www.netlify.com) — build with `npm run build` and serve `dist/`.
+> **Live on [Vercel](https://vercel.com)** at **[pretty-bg.vercel.app](https://pretty-bg.vercel.app)** — every push to `main` is deployed automatically.
 
 ---
 
