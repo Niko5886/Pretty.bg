@@ -24,6 +24,7 @@ const en = {
     languageGroup: "Language",
     switchToBg: "Смени езика на български",
     switchToEn: "Switch language to English",
+    rating: (value: number) => `Rated ${value} out of 5`,
   },
 
   nav: {
@@ -289,6 +290,7 @@ const bg: Dict = {
     languageGroup: "Език",
     switchToBg: "Смени езика на български",
     switchToEn: "Switch language to English",
+    rating: (value: number) => `Оценка ${value} от 5`,
   },
 
   nav: {

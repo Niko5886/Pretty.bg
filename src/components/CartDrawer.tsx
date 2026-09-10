@@ -122,7 +122,7 @@ export function CartDrawer() {
                         type="button"
                         onClick={() => setQty(product.id, qty - 1)}
                         aria-label={t.cart.decrease(name)}
-                        className="flex h-8 w-8 items-center justify-center rounded-full text-green-dark transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange"
+                        className="flex h-9 w-9 items-center justify-center rounded-full text-green-dark transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange"
                       >
                         <Minus className="h-3.5 w-3.5" aria-hidden="true" />
                       </button>
@@ -133,7 +133,7 @@ export function CartDrawer() {
                         type="button"
                         onClick={() => setQty(product.id, qty + 1)}
                         aria-label={t.cart.increase(name)}
-                        className="flex h-8 w-8 items-center justify-center rounded-full text-green-dark transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange"
+                        className="flex h-9 w-9 items-center justify-center rounded-full text-green-dark transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange"
                       >
                         <Plus className="h-3.5 w-3.5" aria-hidden="true" />
                       </button>

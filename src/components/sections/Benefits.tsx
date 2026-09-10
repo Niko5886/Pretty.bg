@@ -13,7 +13,7 @@ export function Benefits() {
       aria-label={t.benefits.aria}
       className="scroll-mt-24 border-y border-green-dark/10 bg-white/50"
     >
-      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-4 py-10 md:px-8 lg:grid-cols-4 lg:px-12">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 py-10 sm:grid-cols-2 md:px-8 lg:grid-cols-4 lg:px-12">
         {t.benefits.items.map(({ title, text }, i) => {
           const Icon = ICONS[i];
           return (
