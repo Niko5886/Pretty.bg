@@ -124,7 +124,7 @@ const en = {
   },
 
   story: {
-    imageAlt: "A happy dog resting cosily at home",
+    imageAlt: "A couple with their little dog while travelling",
     eyebrow: "Our promise",
     title: "Everything Your Pets Love",
     body: "Pretty.bg began with one belief: our companions deserve the same care we give ourselves. Every product is chosen by real pet parents and reviewed by vets — so you can shop with confidence and they can live their comfiest, happiest life.",
@@ -389,7 +389,7 @@ const bg: Dict = {
   },
 
   story: {
-    imageAlt: "Щастливо куче, което почива уютно у дома",
+    imageAlt: "Двойка със своето кученце по време на пътуване",
     eyebrow: "Нашето обещание",
     title: "Всичко, което любимците ви обичат",
     body: "Pretty.bg започна с едно убеждение: нашите компаньони заслужават същата грижа, която даваме на себе си. Всеки продукт е избран от истински стопани и прегледан от ветеринари — за да пазарувате уверено, а те да живеят своя най-уютен и щастлив живот.",
