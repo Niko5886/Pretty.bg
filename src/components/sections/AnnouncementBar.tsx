@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Truck, X } from "lucide-react";
+import { useI18n } from "../../i18n/I18nContext";
 
 const KEY = "prettybg-announcement";
 
 export function AnnouncementBar() {
+  const { t } = useI18n();
   const [dismissed, setDismissed] = useState(
     () =>
       typeof sessionStorage !== "undefined" &&
@@ -31,16 +33,16 @@ export function AnnouncementBar() {
         <p className="flex items-center justify-center gap-2">
           <Truck className="h-4 w-4 shrink-0" aria-hidden="true" />
           <span>
-            Free shipping on orders over{" "}
+            {t.announcement.freePre}{" "}
             <strong className="font-semibold">$49</strong>
             <span className="mx-2 text-white/40">·</span>
-            24/7 vet chat support
+            {t.announcement.support}
           </span>
         </p>
         <button
           type="button"
           onClick={dismiss}
-          aria-label="Dismiss announcement"
+          aria-label={t.announcement.dismiss}
           className="absolute right-3 top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full text-white/70 transition hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
         >
           <X className="h-4 w-4" aria-hidden="true" />

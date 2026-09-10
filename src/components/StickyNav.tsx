@@ -2,6 +2,8 @@ import { ShoppingCart, PawPrint } from "lucide-react";
 import { NAV_ITEMS } from "../data/nav";
 import { useScrolled } from "../hooks/useScrolled";
 import { MobileMenu } from "./MobileMenu";
+import { LanguageSwitcher } from "./ui/LanguageSwitcher";
+import { useI18n } from "../i18n/I18nContext";
 
 /**
  * Condensed navigation that slides in from the top once the hero has been
@@ -9,6 +11,7 @@ import { MobileMenu } from "./MobileMenu";
  */
 export function StickyNav() {
   const scrolled = useScrolled(500);
+  const { t } = useI18n();
 
   return (
     <div
@@ -24,7 +27,7 @@ export function StickyNav() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-8 lg:px-12">
           <a
             href="#top"
-            aria-label="Pretty.bg home"
+            aria-label={t.header.home}
             className="flex items-center gap-2 rounded outline-none focus-visible:ring-2 focus-visible:ring-orange"
           >
             <PawPrint className="h-6 w-6 text-orange" aria-hidden="true" />
@@ -40,11 +43,11 @@ export function StickyNav() {
             >
               {NAV_ITEMS.map((item) => (
                 <a
-                  key={item.label}
+                  key={item.key}
                   href={item.href}
                   className="rounded text-green-dark/70 transition hover:text-green-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange"
                 >
-                  {item.label}
+                  {t.nav[item.key]}
                 </a>
               ))}
             </nav>
@@ -54,8 +57,10 @@ export function StickyNav() {
               className="inline-flex items-center gap-2 rounded-full bg-orange px-4 py-2 text-sm font-medium text-white transition hover:bg-orange-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               <ShoppingCart className="h-4 w-4" aria-hidden="true" />
-              Shop
+              {t.sticky.shop}
             </a>
+
+            <LanguageSwitcher className="hidden md:inline-flex" />
 
             <MobileMenu />
           </div>

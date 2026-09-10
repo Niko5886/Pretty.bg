@@ -1,12 +1,14 @@
-import type { CSSProperties } from "react";
+import { Fragment, type CSSProperties } from "react";
 import { Star, ArrowRight, Plus } from "lucide-react";
 import { ASSETS } from "../lib/assets";
 import { CountUp } from "./ui/CountUp";
+import { useI18n } from "../i18n/I18nContext";
 
 /* ------------------------------------------------------------------ */
 /*  Reusable pieces                                                   */
 /* ------------------------------------------------------------------ */
 function StatBadge({ light = true }: { light?: boolean }) {
+  const { t } = useI18n();
   return (
     <div className="flex items-center gap-3">
       <div className="flex -space-x-3">
@@ -28,7 +30,7 @@ function StatBadge({ light = true }: { light?: boolean }) {
           <CountUp end={98} suffix="K+" />
         </p>
         <p className={`text-xs ${light ? "text-white/80" : "text-gray-600"}`}>
-          Happy Customers
+          {t.hero.happyCustomers}
         </p>
       </div>
     </div>
@@ -51,11 +53,12 @@ function RatingBadge({ light = true }: { light?: boolean }) {
 }
 
 function ExploreButton({ className = "" }: { className?: string }) {
+  const { t } = useI18n();
   return (
     <button
       className={`inline-flex items-center gap-2 rounded-full bg-orange px-6 py-3 text-sm font-medium text-white transition hover:bg-orange-hover ${className}`}
     >
-      Explore Products
+      {t.hero.explore}
       <ArrowRight className="h-4 w-4" aria-hidden="true" />
     </button>
   );
@@ -63,6 +66,7 @@ function ExploreButton({ className = "" }: { className?: string }) {
 
 /* Bottom overlays shared by desktop + tablet */
 function BottomOverlays() {
+  const { t } = useI18n();
   const pos: CSSProperties = { bottom: "clamp(20px, 4vh, 50px)" };
   return (
     <>
@@ -77,7 +81,7 @@ function BottomOverlays() {
         style={pos}
       >
         <h3 className="mb-3 font-serif-display text-2xl text-white drop-shadow">
-          Best Products for Your Pet
+          {t.hero.bestProducts}
         </h3>
         <ExploreButton />
       </div>
@@ -92,24 +96,33 @@ function BottomOverlays() {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Hero heading (word-pop)                                           */
+/*  Hero heading (word-pop) — words come from the active locale        */
 /* ------------------------------------------------------------------ */
 function HeroHeading({ style }: { style?: CSSProperties }) {
+  const { t } = useI18n();
+  const { line1, line2 } = t.hero;
+  const delay = (i: number) => `delay-${200 + i * 100}`;
+
+  const renderLine = (words: string[], offset: number) => (
+    <span className="block">
+      {words.map((word, i) => (
+        <Fragment key={`${word}-${i}`}>
+          {i > 0 ? " " : ""}
+          <span className={`inline-block animate-word-pop ${delay(offset + i)}`}>
+            {word}
+          </span>
+        </Fragment>
+      ))}
+    </span>
+  );
+
   return (
     <h1
       className="font-serif-display leading-[0.95] tracking-tight text-green-dark"
       style={style}
     >
-      <span className="block">
-        <span className="inline-block animate-word-pop delay-200">
-          Everything
-        </span>
-      </span>
-      <span className="block">
-        <span className="inline-block animate-word-pop delay-300">Your</span>{" "}
-        <span className="inline-block animate-word-pop delay-400">Pets</span>{" "}
-        <span className="inline-block animate-word-pop delay-500">Love</span>
-      </span>
+      {renderLine(line1, 0)}
+      {renderLine(line2, line1.length)}
     </h1>
   );
 }
@@ -118,6 +131,7 @@ function HeroHeading({ style }: { style?: CSSProperties }) {
 /*  Desktop hero (lg+)                                                */
 /* ------------------------------------------------------------------ */
 function DesktopHero() {
+  const { t } = useI18n();
   return (
     <section className="relative hidden flex-1 flex-col overflow-hidden lg:flex">
       {/* Text layer */}
@@ -136,7 +150,7 @@ function DesktopHero() {
           />
           <img
             src={ASSETS.bottomCenter}
-            alt="Happy pets living their comfiest life with Pretty.bg"
+            alt={t.hero.imageAlt}
             className="block h-auto w-full flex-[1.265] animate-photo-reveal delay-600"
             style={{ maxHeight: "min(85vh, 70vw)" }}
           />
@@ -157,6 +171,7 @@ function DesktopHero() {
 /*  Tablet hero (md to lg)                                            */
 /* ------------------------------------------------------------------ */
 function TabletHero() {
+  const { t } = useI18n();
   return (
     <section className="relative hidden flex-1 flex-col overflow-hidden md:flex lg:hidden">
       <div className="relative z-[5] px-8 pt-16 text-center">
@@ -173,7 +188,7 @@ function TabletHero() {
           />
           <img
             src={ASSETS.bottomCenter}
-            alt="Happy pets living their comfiest life with Pretty.bg"
+            alt={t.hero.imageAlt}
             className="block h-auto w-full flex-[1.265] animate-photo-reveal delay-600"
             style={{ maxHeight: "75vh" }}
           />
@@ -194,6 +209,7 @@ function TabletHero() {
 /*  Mobile hero (below md)                                            */
 /* ------------------------------------------------------------------ */
 function MobileHero() {
+  const { t } = useI18n();
   return (
     <section className="relative flex flex-1 flex-col overflow-hidden md:hidden">
       {/* Title */}
@@ -202,10 +218,10 @@ function MobileHero() {
           className="animate-fade-up font-serif-display leading-[1.05] tracking-tight text-green-dark delay-200"
           style={{ fontSize: "36px" }}
         >
-          Everything Your Pets Love
+          {t.hero.headingFull}
         </h1>
         <p className="mt-2 animate-fade-up text-sm text-gray-600 delay-300">
-          Cozy homes, tasty treats and everything your best friend needs.
+          {t.hero.mobileSubtitle}
         </p>
         <ExploreButton className="mt-4 animate-fade-up delay-400" />
       </div>
@@ -226,7 +242,7 @@ function MobileHero() {
         />
         <img
           src={ASSETS.bottomCenter}
-          alt="Happy pets living their comfiest life with Pretty.bg"
+          alt={t.hero.imageAlt}
           className="block h-auto w-full flex-[1.265] animate-photo-reveal delay-600"
         />
         <img

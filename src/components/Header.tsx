@@ -3,7 +3,9 @@ import { Search, ShoppingCart, Star, PawPrint } from "lucide-react";
 import { NAV_ITEMS } from "../data/nav";
 import { MobileMenu } from "./MobileMenu";
 import { AccountMenu } from "./AccountMenu";
+import { LanguageSwitcher } from "./ui/LanguageSwitcher";
 import { useShop } from "../context/ShopContext";
+import { useI18n } from "../i18n/I18nContext";
 
 function Badge({ count }: { count: number }) {
   if (count <= 0) return null;
@@ -17,6 +19,7 @@ function Badge({ count }: { count: number }) {
 export function Header() {
   const { cartCount, wishlistCount, openSearch, openCart, openWishlist } =
     useShop();
+  const { t } = useI18n();
 
   // Cmd/Ctrl+K or "/" opens search (unless the user is typing in a field).
   useEffect(() => {
@@ -42,7 +45,7 @@ export function Header() {
         {/* Logo */}
         <a
           href="#top"
-          aria-label="Pretty.bg home"
+          aria-label={t.header.home}
           className="flex animate-fade-in items-center gap-2 delay-100 outline-none focus-visible:ring-2 focus-visible:ring-orange"
         >
           <PawPrint className="h-7 w-7 text-orange lg:h-8 lg:w-8" aria-hidden="true" />
@@ -58,13 +61,13 @@ export function Header() {
         >
           {NAV_ITEMS.map((item, i) => (
             <a
-              key={item.label}
+              key={item.key}
               href={item.href}
               className={`rounded transition hover:text-green-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange ${
                 i === 0 ? "text-green-dark" : "text-green-dark/70"
               }`}
             >
-              {item.label}
+              {t.nav[item.key]}
             </a>
           ))}
         </nav>
@@ -74,7 +77,7 @@ export function Header() {
           <button
             type="button"
             onClick={openSearch}
-            aria-label="Search (press / )"
+            aria-label={t.header.search}
             className="hidden h-10 w-10 items-center justify-center rounded-full border border-gray-300 text-green-dark transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange sm:flex"
           >
             <Search className="h-4 w-4" aria-hidden="true" />
@@ -82,9 +85,7 @@ export function Header() {
           <button
             type="button"
             onClick={openWishlist}
-            aria-label={`Favorites, ${wishlistCount} ${
-              wishlistCount === 1 ? "item" : "items"
-            }`}
+            aria-label={t.header.favorites(wishlistCount)}
             className="relative flex h-10 w-10 items-center justify-center rounded-full bg-orange text-white transition hover:bg-orange-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             <Star className="h-4 w-4" fill="currentColor" aria-hidden="true" />
@@ -93,13 +94,14 @@ export function Header() {
           <button
             type="button"
             onClick={openCart}
-            aria-label={`Cart, ${cartCount} ${cartCount === 1 ? "item" : "items"}`}
+            aria-label={t.header.cart(cartCount)}
             className="relative flex h-10 w-10 items-center justify-center rounded-full border border-gray-300 text-green-dark transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange"
           >
             <ShoppingCart className="h-4 w-4" aria-hidden="true" />
             <Badge count={cartCount} />
           </button>
           <AccountMenu />
+          <LanguageSwitcher className="hidden sm:inline-flex" />
           <MobileMenu />
         </div>
       </div>

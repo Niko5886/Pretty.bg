@@ -5,23 +5,25 @@ import { StarRating } from "../ui/StarRating";
 import { Reveal } from "../ui/Reveal";
 import { CountUp } from "../ui/CountUp";
 import { TESTIMONIALS } from "../../data/testimonials";
+import { useI18n } from "../../i18n/I18nContext";
 
 const PRESS = ["PetMag", "The Bark", "VetDaily", "PawPost", "Groomed"];
 
 export function Testimonials() {
+  const { t } = useI18n();
   return (
     <Section id="reviews" aria-labelledby="reviews-heading">
       <SectionHeading
         id="reviews-heading"
-        eyebrow="Reviews"
+        eyebrow={t.reviews.eyebrow}
         title={
           <>
-            Loved by{" "}
-            <CountUp end={98} suffix="K+" className="tabular-nums" /> pet
-            parents
+            {t.reviews.lovedByPre}{" "}
+            <CountUp end={98} suffix="K+" className="tabular-nums" />{" "}
+            {t.reviews.lovedByPost}
           </>
         }
-        subtitle="Real words from real customers — and their very good boys and girls."
+        subtitle={t.reviews.subtitle}
       />
 
       {/* Stat row */}
@@ -35,29 +37,31 @@ export function Testimonials() {
           <strong className="font-semibold text-green-dark tabular-nums">
             <CountUp end={98} suffix="K+" />
           </strong>{" "}
-          happy customers
+          {t.reviews.happyCustomers}
         </p>
         <span className="hidden h-6 w-px bg-green-dark/20 sm:block" />
         <p className="text-sm text-gray-600">
           <strong className="font-semibold text-green-dark tabular-nums">
             <CountUp end={12} suffix="K+" />
           </strong>{" "}
-          five-star reviews
+          {t.reviews.fiveStar}
         </p>
       </div>
 
       {/* Review cards */}
       <div className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
-        {TESTIMONIALS.map((t, i) => (
-          <Reveal key={t.id} className="h-full" delay={`delay-${(i + 1) * 100}`}>
+        {TESTIMONIALS.map((item, i) => {
+          const copy = t.reviews.items[item.id];
+          return (
+          <Reveal key={item.id} className="h-full" delay={`delay-${(i + 1) * 100}`}>
             <article className="flex h-full flex-col rounded-2xl bg-white p-6 shadow-sm md:p-8">
-              <StarRating value={t.rating} size={18} />
+              <StarRating value={item.rating} size={18} />
               <blockquote className="mt-4 flex-1 text-green-dark">
-                “{t.quote}”
+                “{copy.quote}”
               </blockquote>
               <div className="mt-6 flex items-center gap-3">
                 <img
-                  src={t.avatar}
+                  src={item.avatar}
                   alt=""
                   width={48}
                   height={48}
@@ -66,25 +70,26 @@ export function Testimonials() {
                   className="h-12 w-12 rounded-full object-cover"
                 />
                 <div>
-                  <p className="font-semibold text-green-dark">{t.name}</p>
+                  <p className="font-semibold text-green-dark">{item.name}</p>
                   <p className="flex items-center gap-1 text-xs text-gray-500">
                     <BadgeCheck
                       className="h-3.5 w-3.5 text-orange"
                       aria-hidden="true"
                     />
-                    {t.pet} · Verified buyer
+                    {copy.pet} · {t.reviews.verified}
                   </p>
                 </div>
               </div>
             </article>
           </Reveal>
-        ))}
+          );
+        })}
       </div>
 
       {/* Press / as seen in */}
       <div className="mt-14 border-t border-green-dark/10 pt-8">
         <p className="text-center text-xs uppercase tracking-[0.2em] text-green-dark/50">
-          As seen in
+          {t.reviews.asSeenIn}
         </p>
         <div className="mt-4 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-green-dark/55">
           {PRESS.map((name) => (

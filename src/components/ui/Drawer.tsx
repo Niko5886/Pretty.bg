@@ -1,5 +1,6 @@
 import { useEffect, type ReactNode } from "react";
 import { X } from "lucide-react";
+import { useI18n } from "../../i18n/I18nContext";
 
 type DrawerProps = {
   open: boolean;
@@ -19,6 +20,7 @@ export function Drawer({
   children,
   footer,
 }: DrawerProps) {
+  const { t } = useI18n();
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
@@ -42,7 +44,7 @@ export function Drawer({
       {/* Backdrop */}
       <button
         type="button"
-        aria-label="Close"
+        aria-label={t.drawer.close}
         tabIndex={-1}
         onClick={onClose}
         className={`absolute inset-0 h-full w-full cursor-default bg-green-dark/40 transition-opacity duration-300 ${
@@ -67,7 +69,7 @@ export function Drawer({
           <button
             type="button"
             onClick={onClose}
-            aria-label="Close panel"
+            aria-label={t.drawer.closePanel}
             className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-300 text-green-dark transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange"
           >
             <X className="h-4 w-4" aria-hidden="true" />

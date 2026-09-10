@@ -1,22 +1,20 @@
 import { PawPrint, Camera, Music2, AtSign, Mail } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-
-const COLUMNS: { title: string; links: string[] }[] = [
-  { title: "Shop", links: ["Dogs", "Cats", "Small Pets", "Toys & Accessories"] },
-  { title: "About", links: ["Our story", "Blog", "Careers", "Sustainability"] },
-  { title: "Help", links: ["Shipping", "Returns", "FAQ", "Contact"] },
-];
-
-const SOCIALS: { icon: LucideIcon; label: string }[] = [
-  { icon: Camera, label: "Instagram" },
-  { icon: Music2, label: "TikTok" },
-  { icon: AtSign, label: "X (Twitter)" },
-  { icon: Mail, label: "Email" },
-];
+import { useI18n } from "../../i18n/I18nContext";
 
 const PAYMENTS = ["Visa", "Mastercard", "PayPal", "Apple Pay"];
 
 export function Footer() {
+  const { t } = useI18n();
+
+  const columns = [t.footer.columns.shop, t.footer.columns.about, t.footer.columns.help];
+  const socials: { icon: LucideIcon; label: string }[] = [
+    { icon: Camera, label: "Instagram" },
+    { icon: Music2, label: "TikTok" },
+    { icon: AtSign, label: "X (Twitter)" },
+    { icon: Mail, label: t.footer.email },
+  ];
+
   return (
     <footer className="bg-green-dark text-white/70">
       <div className="mx-auto max-w-7xl px-4 py-14 md:px-8 lg:px-12">
@@ -30,12 +28,9 @@ export function Footer() {
               <PawPrint className="h-7 w-7 text-orange" aria-hidden="true" />
               <span className="font-serif-display text-2xl">Pretty.bg</span>
             </a>
-            <p className="mt-4 max-w-xs text-sm">
-              Everything your pets love — vet-approved quality, delivered fast to
-              your door.
-            </p>
+            <p className="mt-4 max-w-xs text-sm">{t.footer.tagline}</p>
             <div className="mt-6 flex gap-3">
-              {SOCIALS.map(({ icon: Icon, label }) => (
+              {socials.map(({ icon: Icon, label }) => (
                 <a
                   key={label}
                   href="#"
@@ -49,7 +44,7 @@ export function Footer() {
           </div>
 
           {/* Link columns */}
-          {COLUMNS.map((col) => (
+          {columns.map((col) => (
             <nav key={col.title} aria-label={col.title}>
               <h3 className="text-sm font-semibold uppercase tracking-wider text-white">
                 {col.title}
@@ -72,7 +67,7 @@ export function Footer() {
 
         {/* Bottom row */}
         <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 md:flex-row md:items-center md:justify-between">
-          <p className="text-sm">© 2026 Pretty.bg. All rights reserved.</p>
+          <p className="text-sm">{t.footer.rights}</p>
 
           <div className="flex flex-wrap gap-2">
             {PAYMENTS.map((p) => (
@@ -90,13 +85,13 @@ export function Footer() {
               href="#"
               className="rounded transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-green-dark"
             >
-              Privacy
+              {t.footer.privacy}
             </a>
             <a
               href="#"
               className="rounded transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-green-dark"
             >
-              Terms
+              {t.footer.terms}
             </a>
           </div>
         </div>

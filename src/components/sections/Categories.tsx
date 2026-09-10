@@ -3,21 +3,25 @@ import { Section } from "../ui/Section";
 import { SectionHeading } from "../ui/SectionHeading";
 import { Reveal } from "../ui/Reveal";
 import { CATEGORIES } from "../../data/categories";
+import { useI18n } from "../../i18n/I18nContext";
 
 export function Categories() {
+  const { t } = useI18n();
   return (
     <Section id="categories" aria-labelledby="categories-heading">
       <SectionHeading
         id="categories-heading"
-        eyebrow="Categories"
-        title="Shop by pet"
-        subtitle="Everything for every kind of companion — curated by our in-house pet parents."
+        eyebrow={t.categories.eyebrow}
+        title={t.categories.title}
+        subtitle={t.categories.subtitle}
       />
 
       <div className="mt-12 grid grid-cols-2 gap-4 md:gap-6 lg:grid-cols-4">
-        {CATEGORIES.map((category, i) => (
+        {CATEGORIES.map((category, i) => {
+          const name = t.categories.names[category.key];
+          return (
           <Reveal
-            key={category.name}
+            key={category.key}
             animation="animate-slide-up"
             delay={`delay-${(i + 1) * 100}`}
           >
@@ -27,7 +31,7 @@ export function Categories() {
             >
               <img
                 src={category.image}
-                alt={category.name}
+                alt={name}
                 width={800}
                 height={1000}
                 loading="lazy"
@@ -38,10 +42,10 @@ export function Categories() {
               <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-4 md:p-5">
                 <div>
                   <h3 className="font-serif-display text-xl leading-tight text-white md:text-2xl">
-                    {category.name}
+                    {name}
                   </h3>
                   <p className="text-sm text-white/80">
-                    {category.count} products
+                    {category.count} {t.categories.products}
                   </p>
                 </div>
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/90 text-green-dark transition group-hover:bg-orange group-hover:text-white">
@@ -50,7 +54,8 @@ export function Categories() {
               </div>
             </a>
           </Reveal>
-        ))}
+          );
+        })}
       </div>
     </Section>
   );

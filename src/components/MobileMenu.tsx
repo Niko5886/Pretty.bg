@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Menu, X, PawPrint } from "lucide-react";
 import { NAV_ITEMS } from "../data/nav";
+import { LanguageSwitcher } from "./ui/LanguageSwitcher";
+import { useI18n } from "../i18n/I18nContext";
 
 /**
  * Mobile navigation: a hamburger button (below md) that opens a full-screen
@@ -8,6 +10,7 @@ import { NAV_ITEMS } from "../data/nav";
  * Escape. Used by both Header and StickyNav so mobile users always have nav.
  */
 export function MobileMenu() {
+  const { t } = useI18n();
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -28,7 +31,7 @@ export function MobileMenu() {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        aria-label="Open menu"
+        aria-label={t.mobileMenu.open}
         aria-expanded={open}
         aria-controls="mobile-menu"
         className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-300 text-green-dark transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange"
@@ -51,7 +54,7 @@ export function MobileMenu() {
             <button
               type="button"
               onClick={() => setOpen(false)}
-              aria-label="Close menu"
+              aria-label={t.mobileMenu.close}
               className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-300 text-green-dark transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange"
             >
               <X className="h-5 w-5" aria-hidden="true" />
@@ -64,15 +67,20 @@ export function MobileMenu() {
           >
             {NAV_ITEMS.map((item) => (
               <a
-                key={item.label}
+                key={item.key}
                 href={item.href}
                 onClick={() => setOpen(false)}
                 className="rounded-xl px-3 py-3 font-serif-display text-2xl text-green-dark transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange"
               >
-                {item.label}
+                {t.nav[item.key]}
               </a>
             ))}
           </nav>
+
+          {/* Language toggle at the bottom of the mobile menu */}
+          <div className="mt-auto px-4 pb-8 pt-6">
+            <LanguageSwitcher />
+          </div>
         </div>
       )}
     </div>

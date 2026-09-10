@@ -2,11 +2,11 @@ import { useEffect, useRef, useState } from "react";
 import { Search, X, ArrowRight } from "lucide-react";
 import { PRODUCTS } from "../data/products";
 import { useShop } from "../context/ShopContext";
-
-const SUGGESTIONS = ["Dog food", "Cat toys", "Beds", "Treats", "Bowls"];
+import { useI18n } from "../i18n/I18nContext";
 
 export function SearchOverlay() {
   const { panel, closePanel, addToCart, openCart } = useShop();
+  const { t } = useI18n();
   const open = panel === "search";
   const [query, setQuery] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
@@ -28,7 +28,9 @@ export function SearchOverlay() {
 
   const q = query.trim().toLowerCase();
   const results = q
-    ? PRODUCTS.filter((p) => p.name.toLowerCase().includes(q))
+    ? PRODUCTS.filter((p) =>
+        t.product.names[p.id].toLowerCase().includes(q)
+      )
     : [];
 
   return (
@@ -40,7 +42,7 @@ export function SearchOverlay() {
     >
       <button
         type="button"
-        aria-label="Close search"
+        aria-label={t.search.close}
         tabIndex={-1}
         onClick={closePanel}
         className={`absolute inset-0 h-full w-full cursor-default bg-green-dark/40 transition-opacity duration-300 ${
@@ -51,7 +53,7 @@ export function SearchOverlay() {
       <div
         role="dialog"
         aria-modal="true"
-        aria-label="Search products"
+        aria-label={t.search.aria}
         className={`absolute inset-x-0 top-0 bg-background shadow-xl transition-transform duration-300 ${
           open ? "translate-y-0" : "-translate-y-full"
         }`}
@@ -64,14 +66,14 @@ export function SearchOverlay() {
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search for food, toys, beds…"
-              aria-label="Search products"
+              placeholder={t.search.placeholder}
+              aria-label={t.search.aria}
               className="flex-1 bg-transparent text-green-dark outline-none placeholder:text-gray-400"
             />
             <button
               type="button"
               onClick={closePanel}
-              aria-label="Close search"
+              aria-label={t.search.close}
               className="flex h-8 w-8 items-center justify-center rounded-full text-green-dark transition hover:bg-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange"
             >
               <X className="h-4 w-4" aria-hidden="true" />
@@ -80,8 +82,10 @@ export function SearchOverlay() {
 
           {!query && (
             <div className="mt-4 flex flex-wrap gap-2">
-              <span className="py-1.5 text-sm text-gray-500">Popular:</span>
-              {SUGGESTIONS.map((s) => (
+              <span className="py-1.5 text-sm text-gray-500">
+                {t.search.popular}
+              </span>
+              {t.search.suggestions.map((s) => (
                 <button
                   key={s}
                   type="button"
@@ -98,7 +102,7 @@ export function SearchOverlay() {
             <div className="mt-4 max-h-[50vh] overflow-y-auto">
               {results.length === 0 ? (
                 <p className="py-6 text-center text-gray-600">
-                  No results for &ldquo;{query}&rdquo;.
+                  {t.search.noResults(query)}
                 </p>
               ) : (
                 <ul className="space-y-2">
@@ -115,7 +119,7 @@ export function SearchOverlay() {
                         />
                         <div className="flex-1">
                           <p className="text-sm font-medium text-green-dark">
-                            {p.name}
+                            {t.product.names[p.id]}
                           </p>
                           <p className="text-sm text-gray-600">
                             ${p.price.toFixed(2)}
@@ -129,7 +133,7 @@ export function SearchOverlay() {
                           }}
                           className="inline-flex items-center gap-1.5 rounded-full bg-orange px-3 py-1.5 text-xs font-medium text-white transition hover:bg-orange-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange"
                         >
-                          Add
+                          {t.search.add}
                           <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
                         </button>
                       </div>

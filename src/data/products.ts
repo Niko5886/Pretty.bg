@@ -1,8 +1,12 @@
 import { unsplashPhoto } from "../lib/assets";
 
+/**
+ * Structural product data. The display `name` lives in the i18n dictionary
+ * (`t.product.names[id]`). `badge` is a token: "bestseller"/"new" are
+ * translated via `t.product.badges`, discount tokens (e.g. "-20%") render as-is.
+ */
 export type Product = {
   id: string;
-  name: string;
   price: number;
   oldPrice?: number;
   rating: number;
@@ -16,16 +20,14 @@ const img = (id: string) => unsplashPhoto(id, 600, 600);
 export const PRODUCTS: Product[] = [
   {
     id: "ceramic-bowl",
-    name: "Premium Ceramic Bowl",
     price: 24.99,
     rating: 4.8,
     reviews: 214,
     image: img("1568640347023-a616a30bc3bd"),
-    badge: "Bestseller",
+    badge: "bestseller",
   },
   {
     id: "grain-free-food",
-    name: "Grain-Free Dog Food",
     price: 39.99,
     oldPrice: 49.99,
     rating: 4.7,
@@ -35,7 +37,6 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "feather-teaser",
-    name: "Feather Teaser Toy",
     price: 12.99,
     rating: 4.6,
     reviews: 98,
@@ -43,7 +44,6 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "walking-set",
-    name: "Everyday Walking Set",
     price: 29.99,
     rating: 4.5,
     reviews: 143,
@@ -51,16 +51,14 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "salmon-treats",
-    name: "Salmon Training Treats",
     price: 9.99,
     rating: 4.9,
     reviews: 320,
     image: img("1583743814966-8936f5b7be1a"),
-    badge: "New",
+    badge: "new",
   },
   {
     id: "adult-dry-food",
-    name: "Adult Dry Food 5kg",
     price: 44.99,
     rating: 4.7,
     reviews: 187,
@@ -68,7 +66,6 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "orthopedic-bed",
-    name: "Orthopedic Pet Bed",
     price: 69.99,
     oldPrice: 89.99,
     rating: 4.8,
@@ -78,7 +75,6 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "cat-scratcher",
-    name: "Modern Cat Scratcher",
     price: 34.99,
     rating: 4.6,
     reviews: 121,

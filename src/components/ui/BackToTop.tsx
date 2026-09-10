@@ -1,8 +1,10 @@
 import { ArrowUp } from "lucide-react";
 import { useScrolled } from "../../hooks/useScrolled";
+import { useI18n } from "../../i18n/I18nContext";
 
 export function BackToTop() {
   const scrolled = useScrolled(600);
+  const { t } = useI18n();
 
   function toTop() {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -13,7 +15,7 @@ export function BackToTop() {
     <button
       type="button"
       onClick={toTop}
-      aria-label="Back to top"
+      aria-label={t.backToTop}
       className={`fixed bottom-6 right-6 z-40 flex h-11 w-11 items-center justify-center rounded-full bg-green-dark text-white shadow-lg transition duration-300 hover:bg-green-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
         scrolled
           ? "translate-y-0 opacity-100"
