@@ -34,7 +34,7 @@ export function MobileMenu() {
         aria-label={t.mobileMenu.open}
         aria-expanded={open}
         aria-controls="mobile-menu"
-        className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-300 text-green-dark transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange"
+        className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-300 text-green-dark transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange sm:h-10 sm:w-10"
       >
         <Menu className="h-5 w-5" aria-hidden="true" />
       </button>

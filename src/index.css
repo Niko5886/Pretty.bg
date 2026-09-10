@@ -33,6 +33,11 @@ label[for],
 select {
   cursor: pointer;
 }
+/* Editable text fields keep the text (I-beam) cursor */
+input:not([type="submit"]):not([type="button"]):not([type="checkbox"]):not([type="radio"]),
+textarea {
+  cursor: text;
+}
 
 html {
   scroll-behavior: smooth;

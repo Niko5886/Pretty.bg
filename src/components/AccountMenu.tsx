@@ -42,7 +42,7 @@ export function AccountMenu() {
         <img
           src={ASSETS.avatar}
           alt=""
-          className="h-10 w-10 rounded-full object-cover"
+          className="h-9 w-9 rounded-full object-cover sm:h-10 sm:w-10"
         />
       </button>
 

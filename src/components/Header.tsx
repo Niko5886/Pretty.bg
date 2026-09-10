@@ -49,7 +49,7 @@ export function Header() {
           className="flex animate-fade-in items-center gap-2 delay-100 outline-none focus-visible:ring-2 focus-visible:ring-orange"
         >
           <PawPrint className="h-7 w-7 text-orange lg:h-8 lg:w-8" aria-hidden="true" />
-          <span className="font-serif-display text-2xl text-green-dark lg:text-3xl">
+          <span className="font-serif-display text-xl text-green-dark sm:text-2xl lg:text-3xl">
             Pretty.bg
           </span>
         </a>
@@ -73,7 +73,7 @@ export function Header() {
         </nav>
 
         {/* Actions */}
-        <div className="flex animate-fade-in items-center gap-3 delay-300">
+        <div className="flex animate-fade-in items-center gap-2 delay-300 sm:gap-3">
           <button
             type="button"
             onClick={openSearch}
@@ -86,7 +86,7 @@ export function Header() {
             type="button"
             onClick={openWishlist}
             aria-label={t.header.favorites(wishlistCount)}
-            className="relative flex h-10 w-10 items-center justify-center rounded-full bg-orange text-white transition hover:bg-orange-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            className="relative flex h-9 w-9 items-center justify-center rounded-full bg-orange text-white transition hover:bg-orange-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:h-10 sm:w-10"
           >
             <Star className="h-4 w-4" fill="currentColor" aria-hidden="true" />
             <Badge count={wishlistCount} />
@@ -95,7 +95,7 @@ export function Header() {
             type="button"
             onClick={openCart}
             aria-label={t.header.cart(cartCount)}
-            className="relative flex h-10 w-10 items-center justify-center rounded-full border border-gray-300 text-green-dark transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange"
+            className="relative flex h-9 w-9 items-center justify-center rounded-full border border-gray-300 text-green-dark transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange sm:h-10 sm:w-10"
           >
             <ShoppingCart className="h-4 w-4" aria-hidden="true" />
             <Badge count={cartCount} />
