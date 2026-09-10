@@ -23,8 +23,8 @@ export const unsplashPhoto = (id: string, w = 800, h = 1000) =>
 export const PLACEHOLDER = {
   categoryDogs: unsplashPhoto("1552053831-71594a27632d"),
   categoryCats: unsplashPhoto("1514888286974-6c03e2ca1dba"),
-  categorySmallPets: unsplashPhoto("1452857297128-d9c29adba80b"),
-  categoryToys: unsplashPhoto("1576201836106-db1758fd1c97"),
+  categorySmallPets: unsplashPhoto("1585110396000-c9ffd4e4b308"), // rabbit
+  categoryToys: unsplashPhoto("1591946614720-90a587da4a36"), // dog with plush toy
   // Real Pretty.bg brand photo (optimised 900px JPEG in /public).
   brandStory: "/brand-story.jpg",
 } as const;
