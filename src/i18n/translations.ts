@@ -273,8 +273,7 @@ const en = {
     },
     email: "Email",
     rights: "© 2026 Pretty.bg. All rights reserved.",
-    privacy: "Privacy",
-    terms: "Terms",
+    credit: "Designed & built by N. Stoyanov",
   },
 };
 
@@ -539,8 +538,7 @@ const bg: Dict = {
     },
     email: "Имейл",
     rights: "© 2026 Pretty.bg. Всички права запазени.",
-    privacy: "Поверителност",
-    terms: "Условия",
+    credit: "Designed & built by N. Stoyanov",
   },
 };
 

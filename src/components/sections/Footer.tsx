@@ -80,20 +80,16 @@ export function Footer() {
             ))}
           </div>
 
-          <div className="flex gap-6 text-sm">
+          <p className="text-sm">
             <a
-              href="#"
+              href="https://nikolay-ai-native-developer.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-green-dark"
             >
-              {t.footer.privacy}
+              {t.footer.credit}
             </a>
-            <a
-              href="#"
-              className="rounded transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-green-dark"
-            >
-              {t.footer.terms}
-            </a>
-          </div>
+          </p>
         </div>
       </div>
     </footer>
