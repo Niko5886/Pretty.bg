@@ -145,19 +145,19 @@ function DesktopHero() {
           <img
             src={ASSETS.bottomLeft}
             alt=""
-            className="block h-auto w-full flex-1 animate-photo-reveal delay-700"
+            className="block h-auto w-full min-w-0 flex-1 animate-photo-reveal delay-700"
             style={{ maxHeight: "min(70vh, 55vw)" }}
           />
           <img
             src={ASSETS.bottomCenter}
             alt={t.hero.imageAlt}
-            className="block h-auto w-full flex-[1.265] animate-photo-reveal delay-600"
+            className="block h-auto w-full min-w-0 flex-[1.265] animate-photo-reveal delay-600"
             style={{ maxHeight: "min(85vh, 70vw)" }}
           />
           <img
             src={ASSETS.bottomRight}
             alt=""
-            className="block h-auto w-full flex-1 animate-photo-reveal delay-800"
+            className="block h-auto w-full min-w-0 flex-1 animate-photo-reveal delay-800"
             style={{ maxHeight: "min(70vh, 55vw)" }}
           />
         </div>
@@ -183,19 +183,19 @@ function TabletHero() {
           <img
             src={ASSETS.bottomLeft}
             alt=""
-            className="block h-auto w-full flex-1 animate-photo-reveal delay-700"
+            className="block h-auto w-full min-w-0 flex-1 animate-photo-reveal delay-700"
             style={{ maxHeight: "60vh" }}
           />
           <img
             src={ASSETS.bottomCenter}
             alt={t.hero.imageAlt}
-            className="block h-auto w-full flex-[1.265] animate-photo-reveal delay-600"
+            className="block h-auto w-full min-w-0 flex-[1.265] animate-photo-reveal delay-600"
             style={{ maxHeight: "75vh" }}
           />
           <img
             src={ASSETS.bottomRight}
             alt=""
-            className="block h-auto w-full flex-1 animate-photo-reveal delay-800"
+            className="block h-auto w-full min-w-0 flex-1 animate-photo-reveal delay-800"
             style={{ maxHeight: "60vh" }}
           />
         </div>
